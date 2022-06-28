@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html >
+<head>
+	<meta charset="utf-8">
+	<script src=""></script>
+	<title>Inicio</title>
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+	<meta content="" name="keywords">
+	<meta content="" name="description">
+
+	<!-- Favicon -->
+	<link href="img/favicon.ico" rel="icon">
+
+	<!-- Google Web Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@500;700;900&display=swap"
+		rel="stylesheet">
+
+	<!-- Icon Font Stylesheet -->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+	<!-- Libraries Stylesheet -->
+	<link href="lib/animate/animate.min.css" rel="stylesheet">
+	<link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+	<link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+	<!-- Customized Bootstrap Stylesheet -->
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- Template Stylesheet -->
+	<link href="css/style.css" rel="stylesheet">
+	<script src="js/main.js"></script>
+</head>
+<!-- Page Header Start -->
+<div class="container-fluid page-header py-5 mb-5">
+	<div class="container py-5">
+		<h1 class="display-3 text-white text-center mb-3 animated slideInDown">Tabla de partidos</h1>
+		<nav aria-label="breadcrumb animated slideInDown">
+		</nav>
+	</div>
+</div>
+<!-- Page Header End -->
+
+
+<body>
+	<div class="row border m-3 container" >
+		<div class="col-auto">
+			<div class="card p-3">
+				<div class="">
+					<div th:each="tablero, iterStat : ${tableros}" th:if="${iterStat.index >= iterStat.size-1}">
+					<h1 class="text-center" th:text="${tablero.local}"></h1>
+					<h2><p class="card-text text-center" th:text="${tablero.puntoslocal}"></p></h2>
+					<h2><p class="card-text text-center">Faltas</p></h2>
+					<h2><p class="card-text text-center" th:text="${tablero.faltaslocal}"></p></h2>
+					
+				</div>
+			</div>
+		</div> <br>
+		<div class="col-auto">
+			<div class="card">
+				<div class="card-body">
+					<div th:each="tablero, iterStat : ${tableros}" th:if="${iterStat.index >= iterStat.size-1}">
+					<h1 class="text-center" th:text="${tablero.visitante}"></h1>
+					<h2><p class="card-text text-center" th:text="${tablero.puntosvisitante}"></p></h2>
+					<h2><p class="card-text text-center" >Faltas</p></h1>
+					<h2><p class="card-text text-center" th:text="${tablero.faltasvisitante}"></p></h2>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col order-1">
+			<div class="card">
+				<div class="card-body order-12" >
+					<p>hola mubdo</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+</body>
+
+</html>

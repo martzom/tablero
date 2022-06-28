@@ -1,0 +1,71 @@
+<head>
+    <meta charset="utf-8">
+    <title>ingresa equipos</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@500;700;900&display=swap" rel="stylesheet"> 
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<!-- Page Header Start -->
+    <div class="container-fluid page-header py-5 mb-5">
+        <div class="container py-5">
+            <h1 class="display-3 text-white text-center mb-3 animated slideInDown">Local vs Visitante</h1>
+            <nav aria-label="breadcrumb animated slideInDown">
+            </nav>
+        </div>
+    </div>
+    <!-- Page Header End -->
+
+<body>
+	<div class="container mt-3">
+		<h3 class="text-center">Ingresa nombre de los equipos.</h3><br><br>
+		<form th:action="@{/guardar}" method="post" th:object="${tablero}">
+		<input type="hidden" name="idPartido" th:field="*{idPartido}"/>
+			<!-- 2 column grid layout with text inputs for the first and last names -->
+			<div class="row mb-4">
+				<div class="col">
+					<div class="form-outline">
+						<input type="text" id="local" th:field="*{local}" class="form-control" />
+						<label class="form-label" for="form6Example1">Ingrese equipo local</label>
+						
+					</div>
+				</div>
+				<div class="col">
+					<div class="form-outline">
+						<input type="text" th:field="*{visitante}" id="visitante" class="form-control" />
+						<label class="form-label" for="form6Example2">Ingrese equipo visitante</label>
+						
+					</div>
+				</div>
+			</div>
+
+			
+			<button type="submit" name="guardar" value="Guardar" class="btn btn-outline-success btn-block mb-4">Guardar</button>
+			
+
+		</formth>
+	</div>
+</body>
+</html>

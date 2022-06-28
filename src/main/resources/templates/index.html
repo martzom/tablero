@@ -1,0 +1,81 @@
+<head>
+    <meta charset="utf-8">
+    <title>Inicio</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@500;700;900&display=swap" rel="stylesheet"> 
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<!-- Page Header Start -->
+    <div class="container-fluid page-header py-5 mb-5">
+        <div class="container py-5">
+            <h1 class="display-3 text-white text-center mb-3 animated slideInDown">Tabla de partidos</h1>
+            <nav aria-label="breadcrumb animated slideInDown">
+            </nav>
+        </div>
+    </div>
+    <!-- Page Header End -->
+
+
+<body>
+	<br>
+	<div class="container mt-3">
+		<h2 class="text-center">Tabla de partidos</h2>
+		<table class="table table-dark table-hover text-center">
+			<a th:href="@{/agregar}" class="btn  btn-outline-success" role="button" title="Eliminar"><i  aria-hidden="true">Agregar</i></a>
+			<br><br>
+			<thead>
+				<tr>
+					<th>Visitante</th>
+					<th>Local</th>
+					<th>Goles Local</th>
+					<th>Goles Visitante</th>
+					<th>Operaciones</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+				<tr th:each="tablero: ${tableros}">	
+					
+					<td th:text="${tablero.local}"> </td>
+					<td th:text="${tablero.visitante}"> </td>
+					<td th:text="${tablero.puntoslocal}"> </td>
+					<td th:text="${tablero.puntosvisitante}"> </td>
+					<td>
+					<a onclick="return confirm('¿Desea editar partido?')" th:href="@{/editar/}+${tablero.idPartido}"class="btn btn-outline-warning" role="button" title="Editar">
+					<i  aria-hidden="true">Editar</i></a>
+					<a onclick="return confirm('¿Desea eliminar partido?')" th:href="@{/eliminar/}+${tablero.idPartido}" class="btn btn-danger" role="button" title="Editar">
+					<i  aria-hidden="true">Eliminar</i></a>
+					
+					
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<a th:href="@{/marcador}" class="btn btn-outline-success text-primary" role="button" title="Iniciar"><i  aria-hidden="true">Iniciar partido</i></a>
+			<br><br>
+	</div>
+</body>
+</html>
